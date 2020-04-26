@@ -1,0 +1,25 @@
+@Library("gallifrey") _
+
+docker_image_build_push_pipeline {
+  application=[
+    name:'jenkins-kube-agent',
+    version:'1.0'
+  ]
+  jenkins=[
+    agent:[
+        label:'exlinetr-docker-slave'
+    ]
+  ]
+  docker=[
+    build:[
+      remote:[
+        address:'tcp://docker-cluster-master-01.exlinetr.com:2376',
+        credentialId:'docker-master-01'
+      ]
+    ],
+    hub:[
+        address:"registery.exlinetr.com",
+        credentialId:"registery-jenkins-user"
+    ]
+  ]
+}
