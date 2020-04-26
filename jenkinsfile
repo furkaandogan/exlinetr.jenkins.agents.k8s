@@ -18,7 +18,7 @@ docker_image_build_push_pipeline {
       ]
     ],
     hub:[
-        address:"registery.exlinetr.com",
+        address:"https://registery.exlinetr.com",
         credentialId:"registery-jenkins-user"
     ]
   ]
